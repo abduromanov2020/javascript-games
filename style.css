@@ -1,0 +1,25 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #111;
+}
+
+#canvas1 {
+    border-radius: 2rem;
+    border: 1px solid #000;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    max-width: 98%;
+    max-height: 100%;
+    font-family: 'Creepster', cursive;
+}
+
+#player, #layer1, #layer2, #layer3, #layer4, #layer5, #enemy_fly, #enemy_plant, #enemy_spider, #fire, #collisionAnimation, #lives,#enemy_bat, #enemy_ghost_1, #enemy_ghost_2 {
+    display: none;
+}
