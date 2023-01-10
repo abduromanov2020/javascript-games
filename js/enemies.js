@@ -126,3 +126,59 @@ export class EnemyGhost1 extends FlyingEnemy {
     this.image = document.getElementById("enemy_ghost_1");
   }
 }
+
+export class EnemyGhost2 extends FlyingEnemy {
+  constructor(game) {
+    super(game);
+    this.game = game;
+    this.width = 60.1;
+    this.image = document.getElementById("enemy_ghost_2");
+  }
+}
+
+export class EnemyWorm extends GroundEnemy {
+  constructor(game) {
+    super(game);
+    this.game = game;
+    this.width = 80.3;
+    this.height = 60;
+    this.image = document.getElementById("enemy_worm");
+    this.x = this.game.width + Math.random() * this.game.width * 0.5;
+    this.speedX = Math.random() + 1;
+    this.y = this.game.height - this.height - this.game.groundMargin;
+  }
+}
+
+export class EnemyGhost3 extends FlyingEnemy {
+  constructor(game) {
+    super(game);
+    this.game = game;
+    this.width = 80;
+    this.height = 89;
+    this.image = document.getElementById("enemy_ghost_3");
+    this.maxFrame = 1;
+  }
+}
+
+export class EnemyRaven extends FlyingEnemy {
+  constructor(game) {
+    super(game);
+    this.game = game;
+    this.speedX = Math.random() + 5;
+    this.width = 133.3;
+    this.height = 95;
+    this.image = document.getElementById("enemy_raven");
+  }
+}
+
+export class EnemyHand extends GroundEnemy {
+  constructor(game) {
+    super(game);
+    this.game = game;
+    this.width = 55.75;
+    this.height = 80;
+    this.image = document.getElementById("enemy_hand");
+    this.x = this.game.width + Math.random() * this.game.width * 0.5;
+    this.y = this.game.height - this.height - this.game.groundMargin;
+  }
+}

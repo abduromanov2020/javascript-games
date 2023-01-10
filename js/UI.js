@@ -29,10 +29,14 @@ export class UI {
     }
 
     // level
-    if (this.game.score % 10000 < 1500 && this.game.score !== 0) {
+    if (
+      this.game.score % this.game.levelUp < 1200 &&
+      this.game.score !== 0 &&
+      this.game.score < 100000
+    ) {
       context.textAlign = "center";
       context.font = this.fontSize * 2 + "px " + this.fontFamily;
-      this.game.level = Math.floor(this.game.score / 10000 + 1);
+      this.game.level = Math.floor(this.game.score / this.game.levelUp + 1);
       context.fillText(
         "Level " + this.game.level,
         this.game.width * 0.5,
@@ -44,13 +48,20 @@ export class UI {
     if (this.game.gameOver) {
       context.textAlign = "center";
       context.font = this.fontSize * 3 + "px " + this.fontFamily;
-      if (this.game.lives !== 0) {
+      if (this.game.lives !== 0 && this.game.score !== 0) {
         context.fillText(
           "Winner Chiken Dinner",
           this.game.width * 0.5,
           this.game.height * 0.5 - 20
         );
+        context.font = this.fontSize * 1 + "px " + this.fontFamily;
+        context.fillText(
+          'Press "R" to play again',
+          this.game.width * 0.5,
+          this.game.height * 0.5 + 20
+        );
       } else {
+        context.font = this.fontSize * 3 + "px " + this.fontFamily;
         context.fillText(
           "Game Over",
           this.game.width * 0.5,
@@ -58,7 +69,7 @@ export class UI {
         );
         context.font = this.fontSize * 1 + "px " + this.fontFamily;
         context.fillText(
-          'Press "R" to restart',
+          'Press "R" to play again',
           this.game.width * 0.5,
           this.game.height * 0.5 + 20
         );
@@ -78,7 +89,7 @@ export class UI {
       context.shadowBlur = 7;
       context.font = this.fontSize * 3.5 + "px " + this.fontFamily;
       context.fillText(
-        "Momob Adventure",
+        "Momob lost in jungle",
         this.game.width * 0.5,
         this.game.height * 0.5 - 150
       );

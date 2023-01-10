@@ -20,6 +20,6 @@ body {
     font-family: 'Creepster', cursive;
 }
 
-#player, #layer1, #layer2, #layer3, #layer4, #layer5, #enemy_fly, #enemy_plant, #enemy_spider, #fire, #collisionAnimation, #lives,#enemy_bat, #enemy_ghost_1, #enemy_ghost_2 {
+#player, #layer1, #layer2, #layer3, #layer4, #layer5, #enemy_fly, #enemy_plant, #enemy_spider, #fire, #collisionAnimation, #lives,#enemy_bat, #enemy_ghost_1, #enemy_ghost_2, #enemy_hand, #enemy_worm, #enemy_raven, #enemy_ghost_3 {
     display: none;
 }

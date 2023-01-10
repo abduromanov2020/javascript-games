@@ -7,6 +7,11 @@ import {
   ClimbingEnemy,
   EnemyBat,
   EnemyGhost1,
+  EnemyGhost2,
+  EnemyWorm,
+  EnemyGhost3,
+  EnemyRaven,
+  EnemyHand,
 } from "./enemies.js";
 import { UI } from "./ui.js";
 
@@ -42,6 +47,7 @@ window.addEventListener("load", function () {
       this.gameOver = false;
       this.lives = 5;
       this.level = 1;
+      this.levelUp = 10000;
       this.player.currentState = this.player.states[0];
       this.player.currentState.enter();
     }
@@ -91,6 +97,8 @@ window.addEventListener("load", function () {
       this.floatingMessages = this.floatingMessages.filter(
         (message) => !message.markedForDeletion
       );
+
+      if (this.score == 200000) this.gameOver = true;
     }
 
     draw(context) {
@@ -117,13 +125,44 @@ window.addEventListener("load", function () {
     }
 
     addEnemy() {
-      if (this.speed > 0 && Math.random() < 0.5)
+      if (this.speed > 0 && Math.random() < 0.5) {
         this.enemies.push(new GroundEnemy(this));
-      else if (this.speed > 0 && this.level == 2)
-        this.enemies.push(new ClimbingEnemy(this));
+      }
+
       this.enemies.push(new FlyingEnemy(this));
       this.enemies.push(new EnemyBat(this));
-      this.enemies.push(new EnemyGhost1(this));
+
+      if (this.speed > 0 && this.level >= 2) {
+        this.enemies.push(new ClimbingEnemy(this));
+      }
+
+      if (this.speed > 0 && this.level >= 3) {
+        this.enemies.push(new EnemyGhost1(this));
+      }
+
+      if (this.speed > 0 && this.level >= 4) {
+        this.enemies.push(new EnemyWorm(this));
+      }
+
+      if (this.speed > 0 && this.level >= 5) {
+        this.enemies.push(new EnemyRaven(this));
+      }
+
+      if (this.speed > 0 && this.level >= 6) {
+        this.enemies.push(new EnemyGhost2(this));
+      }
+
+      if (this.speed > 0 && this.level >= 7) {
+        this.enemies.push(new EnemyGhost3(this));
+      }
+
+      if (this.speed > 0 && this.level >= 8) {
+        this.enemies.push(new EnemyHand(this));
+      }
+
+      if (this.speed > 0 && this.level >= 9) {
+        this.enemyInterval = 750;
+      }
     }
 
     reset() {
